@@ -1,0 +1,276 @@
+﻿@model JiraDashboard.Models.DTO.Settings
+@using System.Web.Optimization
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="author" content="Atakan Karaca">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cumulative</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="~/assets/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    @Styles.Render("~/bundles/home/css")
+</head>
+<body>
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+        <a class="navbar-brand" href="#">Nirvana Dashboard</a>
+        <div class="log-out">
+            <a href="@Url.Action("LogOff","Login")">Log out</a>
+        </div>
+    </nav>
+    <div class="main-content">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="panel panel-default">
+                    <div class="left-menu-header">
+                        REPORTS
+                    </div>
+                    <ul class="left-menu">
+                        <li><a href="@Url.Action("Issue", "Dashboard")"><i class="icon-exclamation"></i>Issues</a></li>
+                        <li>
+                            <a data-toggle="collapse" href="#collapse1"><i class="icon-chart"></i>Story Points<span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            <div id="collapse1" class="panel-collapse collapse settings_list pull-left">
+                                <ul class="dropdown-m">
+                                    <li><a href="@Url.Action("Storypoint", "Dashboard")">Between Two Days</a></li>
+                                    <li><a href="@Url.Action("WeeklyStorypoints", "Dashboard")">Weekly</a></li>
+                                    <li><a href="@Url.Action("MonthlyStorypoints", "Dashboard")">Monthly</a></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                        <li class="active"><a href="@Url.Action("Cumulative", "Dashboard")"><i class="icon-graph"></i>Cumulative</a></li>
+                        <li><a href="@Url.Action("Efficiency", "Dashboard")"><i class="fa fa-code-fork"></i>Efficiency</a></li>
+                    </ul>
+                </div>
+                <div class="text-center" style="font-size:10px;">
+                    @*<i>Developed by <a href="https://www.linkedin.com/in/atakan-karaca-1a0884114/">Atakan Karaca</a></i>*@
+                </div>
+            </div>
+            <div class="col-lg-10">
+                @Html.Partial("/Views/Layout/_SearchPanel.cshtml")
+                <br />
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="cumulative-panel">
+                            @*<div class="panel panel-default">
+                                    <div class="panel-body" id="cumulative-panel-user">
+                                        <button type="button" class="close">&times;</button>
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                <div class="cumulative-head">Assignee:</div>
+                                                <br />
+                                                <div class="cumulative-content">Team</div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                                <div class="cumulative-head">Total Issues:</div>
+                                                <br />
+                                                <div class="cumulative-content">45</div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                                <div class="cumulative-head">Total Story Points:</div>
+                                                <br />
+                                                <div class="cumulative-content">70.5</div>
+                                            </div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5">
+                                                <div class="cumulative-head">Average Time Spent for an Issue:</div>
+                                            <br />
+                                            <div class="cumulative-content">2 Days 11 Hours 56 Minutes</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                <div class="cumulative-date"><b>Result Date:</b> 2017-06-06</div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                <div class="time-interval"><b>Time Interval:</b> 1444</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="loading">
+    </div>
+
+    @Scripts.Render("~/bundles/home/js")
+
+    <script type="text/javascript">
+        $(function () {
+            $('input[name="daterange"]').daterangepicker({
+                "showCustomRangeLabel": false,
+                locale: {
+                    format: 'YYYY-MM-DD'
+                }
+            });
+        });
+    </script>
+    <script>
+        function hideResult(ID) {
+            $('#' + ID).hide();
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            $('#getresult').attr("disabled", true);
+
+            $("#ProjectsDD").change(function () {
+
+                var skillsSelect = document.getElementById("ProjectsDD");
+                var project = skillsSelect.options[skillsSelect.selectedIndex].index
+
+                if (project != 0) {
+
+                    $("#loop").show();
+
+                    $(".btn-settings").css({ "margin-top": "-5px" });
+
+                    $('#getresult').attr("disabled", false);
+
+                    $(window).ready(function () {
+                        $('#loading').show();
+                    });
+
+                    var skillsSelect = document.getElementById("ProjectsDD");
+                    var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
+
+                    $.ajax({
+                        type: "GET",
+                        url: "/Common/PopulateAssigneeList",
+                        data: { projectname: selectedText },
+                        error: function (data) {
+
+                            $(window).ready(function () {
+                                $('#loading').hide();
+                            });
+
+                            alert("Sorry, an error has occured while retriewing usernames");
+
+                        },
+                        success: function (data) {
+
+                            $(window).ready(function () {
+                                $('#loading').hide();
+                            });
+
+                            var ddl = $('#UsersDD');
+                            ddl.empty();
+
+                            $(document.createElement('option'))
+                                    .text("Team")
+                                    .attr('id', "Team")
+                                    .appendTo(ddl);
+
+                            $(data).each(function () {
+                                $(document.createElement('option'))
+                                    .attr('value', this.Id)
+                                    .attr('id', this.Text)
+                                    .text(this.Value)
+                                    .appendTo(ddl);
+                            });
+                        }
+                    });
+                }
+                else {
+                    $('#getresult').attr("disabled", true);
+
+                    CrushTimer();
+
+                    $("#loop").hide();
+
+                    $(".btn-settings").css({ "margin-top": "-9px" });
+
+                    var ddl = $('#UsersDD');
+                    ddl.empty();
+
+                    $(document.createElement('option'))
+                                    .attr('id', "Team")
+                                    .text("Team")
+                                    .appendTo(ddl);
+                }
+            });
+            $("#UsersDD").change(function () {
+
+                $(window).ready(function () {
+                    $('#loading').show();
+                });
+
+                var selectlist = document.getElementById("UsersDD");
+                var selected = selectlist.options[selectlist.selectedIndex].id;
+
+                var tempuser = document.getElementById("tempuser");
+                tempuser.value = selected;
+
+                $(window).ready(function () {
+                    $('#loading').hide();
+                });
+
+            })
+        });
+    </script>
+    <script type="text/javascript">
+
+        $("#getresult").click(function () {
+
+            var start = new Date();
+
+            $(window).ready(function () {
+                $('#loading').show();
+            });
+
+            var dates = document.getElementById("daterange").value;
+            var assignee = document.getElementById("tempuser").value;
+            var projectSelect = document.getElementById("ProjectsDD");
+            var project = projectSelect.options[projectSelect.selectedIndex].text;
+            var assigneeSelect = document.getElementById("UsersDD");
+            var displayname = assigneeSelect.options[assigneeSelect.selectedIndex].text;
+
+            $.ajax({
+                type: 'GET',
+                url: '/Dashboard/CumulativeBetweenTwoDates',
+                data: { dates: dates, assignee: assignee, projectname: project },
+                dataType: 'json',
+                error: function (data) {
+
+                    $(window).ready(function () {
+                        $('#loading').hide();
+                    });
+                    var split = dates.split(" ");
+                    var id = Math.floor((Math.random() * 100000) + 1);
+
+                    $('#cumulative-panel').prepend("<div class=" + "col-lg-12" + " id=" + id + "><div class=" + "panel" + " id=" + "cumulative-user" + "><div class=" + "panel-body" + "><div class=" + "clearfix" + "></div><div class=" + "cumulative-heads" + "><div class=" + "col-md-3" + ">" + "Assignee:" + "</div><div class=" + "col-md-4" + "></div><div class=" + "col-md-5" + "><button type=" + "button" + " class=" + "close" + " onclick=" + "hideResult(" + id + ")" + ">&times;</button></div></div><div class=" + "clearfix" + "></div><br /><div class=" + "cumulative-results" + "><div class=" + "col-md-3" + "><span>" + displayname + "</span></div><div class=" + "col-md-4" + "></div><div class=" + "col-md-5" + "><span>" + "No Results Found" + "</span></div></div></div><div class=" + "clearfix" + "></div><div class=" + "panel-footer" + "><div class=" + "col-md-6" + "><span><b>Dates of Result:</b></span><span>" + " " + split[0] + " ~ " + split[2] + "</span></div><div class=" + "clearfix" + "></div></div></div></div>");
+                },
+                success: function (data) {
+
+                    $(window).ready(function () {
+                        $('#loading').hide();
+                    });
+                    var end = (new Date() - start)
+
+                    if (assignee != "Team") {
+                        //$('#cumulative-panel').prepend("<div class=" + "col-lg-12" + " id=" + data.ID + "><div class=" + "panel" + " id=" + "cumulative-user" + "><div class=" + "panel-body" + "><div class=" + "clearfix" + "></div><div class=" + "cumulative-heads" + "><div class=" + "col-md-3" + ">" + "Assignee:" + "</div><div class=" + "col-md-2" + ">" + "Total Issues:" + "</div><div class=" + "col-md-2" + ">" + "Total Story Points:" + "</div><div class=" + "col-md-5" + "><button type=" + "button" + " class=" + "close" + " onclick=" + "hideResult(" + data.ID + ")" + ">&times;</button>" + "Average Time Spent for an Issue:" + "</div></div><div class=" + "clearfix" + "></div><br /><div class=" + "cumulative-results" + "><div class=" + "col-md-3" + "><span>" + displayname + "</span></div><div class=" + "col-md-2" + "><span>" + data.TotalUserDone + "</span></div><div class=" + "col-md-2" + "><span>" + data.TotalUserStory + "</span></div><div class=" + "col-md-5" + "><span>" + data.Result + "</span></div></div></div><div class=" + "clearfix" + "></div><div class=" + "panel-footer" + "><div class=" + "col-md-6" + "><span><b>Dates of Result:</b></span><span>" + " " + data.StartDate + " ~ " + data.EndDate + "</span></div><div class=" + "col-md-6" + "><span><b>Time Interval: </b></span><span>" + end + "</span></div><div class=" + "clearfix" + "></div></div></div></div>");
+                        $('#cumulative-panel').prepend("<div id=" + data.ID + "><div class=" + "panel-default" + "><button type=" + "button" + " class=" + "close" + " onclick=" + "hideResult(" + data.ID + ")" + ">&times;</button><div class=" + "panel-body" + " id=" + "cumulative-panel-user" + "><div class=" + "row" + "><div class=" + "col-lg-3" + "><div class=" + "cumulative-head" + ">Assignee:</div><br /><div class=" + "cumulative-content" + ">" + displayname + "</div></div><div class=" + "col-lg-2" + "><div class=" + "cumulative-head" + ">Total Issues:</div><br /><div class=" + "cumulative-content" + ">" + data.TotalUserDone + "</div></div><div class=" + "col-lg-2" + "><div class=" + "cumulative-head" + ">Total Story Points:</div><br /><div class=" + "cumulative-content" + ">" + data.TotalUserStory + "</div></div><div class=" + "col-lg-5" + "><div class=" + "cumulative-head" + ">Average Time Spent for an Issue:</div><br /><div class=" + "cumulative-content" + ">" + data.Result + "</div></div></div></div><div class=" + "panel-footer" + "><div class=" + "row" + "><div class=" + "col-lg-6" + "><div class=" + "cumulative-date" + "><b>Result Date:</b>&nbsp;" + data.StartDate + " ~ " + data.EndDate + " </div></div><div class=" + "col-lg-6" + "><div class=" + "time-interval" + "><b>Time Interval:</b>&nbsp;" + end + "</div></div></div></div></div></div></div>");
+                    }
+                    else {
+                        //$('#cumulative-panel').prepend("<div class=" + "col-lg-12" + " id=" + data.ID + "><div class=" + "panel" + " id=" + "cumulative-team" + "><div class=" + "panel-body" + "><div class=" + "clearfix" + "></div><div class=" + "cumulative-heads" + "><div class=" + "col-md-3" + ">" + "Assignee:" + "</div><div class=" + "col-md-2" + ">" + "Total Issues:" + "</div><div class=" + "col-md-2" + ">" + "Total Story Points:" + "</div><div class=" + "col-md-5" + "><button type=" + "button" + " class=" + "close" + " onclick=" + "hideResult(" + data.ID + ")" + ">&times;</button>" + "Average Time Spent for an Issue:" + "</div></div><div class=" + "clearfix" + "></div><br /><div class=" + "cumulative-results" + "><div class=" + "col-md-3" + "><span>Team</span></div><div class=" + "col-md-2" + "><span>" + data.TotalTeamDone + "</span></div><div class=" + "col-md-2" + "><span>" + data.TotalTeamStory + "</span></div><div class=" + "col-md-5" + "><span>" + data.Result + "</span></div></div></div><div class=" + "clearfix" + "></div><div class=" + "panel-footer" + "><div class=" + "col-md-6" + "><span><b>Dates of Result:</b></span><span>" + " " + data.StartDate + " ~ " + data.EndDate + "</span></div><div class=" + "col-md-6" + "><span><b>Time Interval: </b></span><span>" + end + "</span></div><div class=" + "clearfix" + "></div></div></div></div>");
+                        $('#cumulative-panel').prepend("<div id=" + data.ID + "><div class=" + "panel-default" + "><button type=" + "button" + " class=" + "close" + " onclick=" + "hideResult(" + data.ID + ")" + ">&times;</button><div class=" + "panel-body" + " id=" + "cumulative-panel-team" + "><div class=" + "row" + "><div class=" + "col-lg-3" + "><div class=" + "cumulative-head" + ">Assignee:</div><br /><div class=" + "cumulative-content" + ">" + displayname + "</div></div><div class=" + "col-lg-2" + "><div class=" + "cumulative-head" + ">Total Issues:</div><br /><div class=" + "cumulative-content" + ">" + data.TotalTeamDone + "</div></div><div class=" + "col-lg-2" + "><div class=" + "cumulative-head" + ">Total Story Points:</div><br /><div class=" + "cumulative-content" + ">" + data.TotalTeamStory + "</div></div><div class=" + "col-lg-5" + "><div class=" + "cumulative-head" + ">Average Time Spent for an Issue:</div><br /><div class=" + "cumulative-content" + ">" + data.Result + "</div></div></div></div><div class=" + "panel-footer" + "><div class=" + "row" + "><div class=" + "col-lg-6" + "><div class=" + "cumulative-date" + "><b>Result Date:</b>&nbsp;" + data.StartDate + " ~ " + data.EndDate + " </div></div><div class=" + "col-lg-6" + "><div class=" + "time-interval" + "><b>Time Interval:</b>&nbsp;" + end + "</div></div></div></div></div></div></div>");
+                    }
+                }
+
+            });
+        });
+    </script>
+
+</body>
+</html>

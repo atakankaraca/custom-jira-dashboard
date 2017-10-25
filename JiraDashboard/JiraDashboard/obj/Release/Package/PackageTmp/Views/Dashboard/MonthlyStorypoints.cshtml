@@ -1,0 +1,1 @@
+Bu ön derleme aracı tarafından oluşturulan bir işaretçi dosyasıdır ve silinmemelidir!

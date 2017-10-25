@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Views/Dashboard/Issue.cshtml" hash="1dc92fa5" filehash="2f000e97e9fe" flags="110000" assembly="App_Web_jfun2vuk" type="ASP._Page_Views_Dashboard_Issue_cshtml">
+    <filedeps>
+        <filedep name="/Views/Dashboard/Issue.cshtml" />
+    </filedeps>
+</preserve>

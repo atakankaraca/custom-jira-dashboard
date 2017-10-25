@@ -1,0 +1,165 @@
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\ApplicationInsights.config
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\roslyn\csc.exe
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\roslyn\System.Collections.Immutable.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\roslyn\vbc.exe
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\roslyn\VBCSCompiler.exe
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\roslyn\VBCSCompiler.exe.config
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\JiraDashboard.dll.config
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\JiraDashboard.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\JiraDashboard.pdb
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Antlr3.Runtime.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Microsoft.AI.Web.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Microsoft.AI.WindowsServer.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Microsoft.ApplicationInsights.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Microsoft.Web.Infrastructure.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Newtonsoft.Json.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\RestSharp.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\System.Web.Helpers.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\System.Web.Mvc.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\System.Web.Optimization.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\System.Web.Razor.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.Deployment.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.Razor.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\WebGrease.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Antlr3.Runtime.pdb
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Microsoft.AI.Web.xml
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Microsoft.AI.WindowsServer.xml
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Microsoft.ApplicationInsights.xml
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\Newtonsoft.Json.xml
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\RestSharp.xml
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\System.Web.Optimization.xml
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\System.Web.Razor.xml
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.xml
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.Deployment.xml
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.Razor.xml
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\System.Web.Helpers.xml
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\bin\System.Web.Mvc.xml
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\obj\Debug\JiraDashboard.csprojResolveAssemblyReference.cache
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\obj\Debug\JiraDashboard.dll
+c:\users\stajer\documents\visual studio 2015\Projects\JiraDashboard\JiraDashboard\obj\Debug\JiraDashboard.pdb
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\ApplicationInsights.config
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\csc.exe
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\vbc.exe
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\VBCSCompiler.exe
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\JiraDashboard.dll.config
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\JiraDashboard.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\JiraDashboard.pdb
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Antlr3.Runtime.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.Web.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.ApplicationInsights.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Newtonsoft.Json.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\RestSharp.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Helpers.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Mvc.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Optimization.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Razor.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.Deployment.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.Razor.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\WebGrease.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Antlr3.Runtime.pdb
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.Web.xml
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.ApplicationInsights.xml
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\Newtonsoft.Json.xml
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\RestSharp.xml
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Optimization.xml
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Razor.xml
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.xml
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.Deployment.xml
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.Razor.xml
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Helpers.xml
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Mvc.xml
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\obj\Debug\JiraDashboard.csprojResolveAssemblyReference.cache
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\obj\Debug\JiraDashboard.dll
+C:\Users\stajer\Desktop\JiraDashboard\JiraDashboard\obj\Debug\JiraDashboard.pdb
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\ApplicationInsights.config
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\csc.exe
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\vbc.exe
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\VBCSCompiler.exe
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\JiraDashboard.dll.config
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\JiraDashboard.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\JiraDashboard.pdb
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Antlr3.Runtime.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.Web.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Newtonsoft.Json.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\RestSharp.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Helpers.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Mvc.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Optimization.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Razor.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.Razor.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\WebGrease.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Antlr3.Runtime.pdb
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.Web.xml
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\Newtonsoft.Json.xml
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\RestSharp.xml
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Optimization.xml
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Razor.xml
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.xml
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Webpages.Razor.xml
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Helpers.xml
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\bin\System.Web.Mvc.xml
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\obj\Debug\JiraDashboard.csprojResolveAssemblyReference.cache
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\obj\Debug\JiraDashboard.dll
+C:\Users\Atakan\Desktop\JiraDashboard\JiraDashboard\obj\Debug\JiraDashboard.pdb

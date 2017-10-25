@@ -1,0 +1,115 @@
+﻿using HürriyetJiraDashboard.Models.JsonClasses;
+using JiraDashboard.Models.Helpers;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Globalization;
+using System.Linq;
+using System.Web;
+using System.Web.Configuration;
+using System.Web.Mvc;
+
+namespace JiraDashboard.Controllers
+{
+    [LoginControl]
+    public class CommonController : Controller
+    {
+        JiraAuthHelper jAuth = new JiraAuthHelper();
+        JiraJsonFetcher fetcher = new JiraJsonFetcher();
+
+        IDictionary<string, string> cookies;
+
+        public ActionResult EditConfiguration(FormCollection collection)
+        {
+            var config = WebConfigurationManager.OpenWebConfiguration("/");
+
+            config.AppSettings.Settings["maxresult"].Value = collection["MaxResults"];
+            config.AppSettings.Settings["searchuser"].Value = collection["UserSearchLenght"];
+            config.AppSettings.Settings["storypointfield"].Value = collection["StoryPointField"];
+            config.AppSettings.Settings["repeatinterval"].Value = collection["RepeatInterval"];
+            config.Save(ConfigurationSaveMode.Modified);
+
+            ConfigurationManager.RefreshSection("appSettings");
+
+            return Redirect(Request.UrlReferrer.ToString());
+
+        }
+
+        public List<SelectListItem> GetProjects(IDictionary<string, string> cookies)
+        {
+            List<SelectListItem> ProjectsList = new List<SelectListItem>();
+
+            try
+            {
+                var content = fetcher.GetProjectsJson(cookies);
+                var root = JsonConvert.DeserializeObject<RootObject>(content);
+
+                SelectListItem lidefault = new SelectListItem();
+
+                lidefault.Text = "* Select a Project";
+                lidefault.Value = "* Select a Project";
+                ProjectsList.Add(lidefault);
+
+                foreach (var item in root.projects)
+                {
+                    SelectListItem li = new SelectListItem();
+                    li.Text = item.key;
+                    li.Value = item.key;
+
+                    ProjectsList.Add(li);
+                }
+                return ProjectsList;
+            }
+            catch
+            {
+                return ProjectsList;
+            }
+
+        }
+
+        public JsonResult ProjectsChangedAction(string projectname)
+        {
+            jAuth.Login(out cookies);
+
+            var content = fetcher.GetUserNames(cookies, projectname);
+
+            try
+            {
+                var root = JsonConvert.DeserializeObject<RootObject>(content);
+
+                List<SelectListItem> UserNameItem = new List<SelectListItem>();
+
+                foreach (var item in root.issues)
+                {
+                    SelectListItem li = new SelectListItem();
+                    if (item.fields.assignee != null)
+                    {
+                        li.Text = item.fields.assignee.name;
+                        li.Value = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(item.fields.assignee.displayName.ToLower());
+
+                        if (!UserNameItem.Any(x => x.Text == li.Text && x.Value == li.Value))
+                        {
+                            UserNameItem.Add(li);
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                }
+
+                return Json(UserNameItem.OrderBy(x => x.Text), JsonRequestBehavior.AllowGet);
+            }
+            catch
+            {
+                return Json(new { Success = "False", responseText = "An error has occured while retriewing usernames" });
+            }
+        }
+
+    }
+}

@@ -1,0 +1,29 @@
+﻿body {
+    font-family: 'Lato', sans-serif;
+}
+
+.panel-header {
+    height: 70px;
+    background-color: #292b2c !important;
+    color: white;
+    text-align: center;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.panel-body {
+    background-color: white;
+}
+
+.project-name {
+    padding-top: 17px;
+}
+
+    .project-name a {
+        color: white;
+        font-size: 22px;
+    }
+
+        .project-name a:hover {
+            text-decoration: none;
+        }

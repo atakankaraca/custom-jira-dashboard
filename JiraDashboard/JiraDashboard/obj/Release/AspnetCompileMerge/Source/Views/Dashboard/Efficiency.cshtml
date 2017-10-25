@@ -1,0 +1,312 @@
+﻿@model JiraDashboard.Models.DTO.Settings
+@using System.Web.Optimization
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="author" content="Atakan Karaca">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Efficiency</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="~/assets/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    @Styles.Render("~/bundles/home/css")
+</head>
+<body>
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+        <a class="navbar-brand" href="#">Nirvana Dashboard</a>
+        <div class="log-out">
+            <a href="@Url.Action("LogOff","Login")">Log out</a>
+        </div>
+    </nav>
+    <div class="main-content">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="panel panel-default">
+                    <div class="left-menu-header">
+                        REPORTS
+                    </div>
+                    <ul class="left-menu">
+                        <li><a href="@Url.Action("Issue", "Dashboard")"><i class="icon-exclamation"></i>Issues</a></li>
+                        <li>
+                            <a data-toggle="collapse" href="#collapse1"><i class="icon-chart"></i>Story Points<span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                            <div id="collapse1" class="panel-collapse collapse settings_list pull-left">
+                                <ul class="dropdown-m">
+                                    <li><a href="@Url.Action("Storypoint", "Dashboard")">Between Two Days</a></li>
+                                    <li><a href="@Url.Action("WeeklyStorypoints", "Dashboard")">Weekly</a></li>
+                                    <li><a href="@Url.Action("MonthlyStorypoints", "Dashboard")">Monthly</a></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                        <li><a href="@Url.Action("Cumulative", "Dashboard")"><i class="icon-graph"></i>Cumulative</a></li>
+                        <li class="active"><a href="@Url.Action("Efficiency", "Dashboard")"><i class="fa fa-code-fork"></i>Efficiency</a></li>
+                    </ul>
+                </div>
+                <div class="text-center" style="font-size:10px;">
+                    @*<i>Developed by <a href="https://www.linkedin.com/in/atakan-karaca-1a0884114/">Atakan Karaca</a></i>*@
+                </div>
+            </div>
+            <div class="col-lg-10">
+                @Html.Partial("/Views/Layout/_SearchPanel.cshtml")
+                <br />
+                <div class="row">
+                    <div class="col-lg-12" id="efficiency_panel">
+                        <div class="panel panel-default efficiency_panel">
+                            <div class="panel-body">
+                                <span class="pull-right eff_text">Total Turn Backs</span>
+                                <span id="efficiency_count" class="pull-left"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-lg-12 created-grid" id="efficiency_table_panel">
+                        <div class="panel panel-default">
+                            <div class="panel-heading story-head">
+                                Team Table
+                                <div class="download">
+                                    <i class="fa fa-download" onclick="Efficiency()" title="Download as Excel"></i>
+                                </div>
+                            </div>
+                            <div class="panel-body" id="efficiency_table">
+                                <div class="table-created">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered" id="efficiency-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Assignee</th>
+                                                    <th>Creator</th>
+                                                    <th>Created Date</th>
+                                                    <th>Resolution Date</th>
+                                                    <th>Turn Back Count</th>
+                                                    <th>Issue Type</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="t-body-table-efficiency"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="loading">
+
+    </div>
+
+    @Scripts.Render("~/bundles/home/js")
+
+    <script type="text/javascript">
+        $(function () {
+            $('input[name="daterange"]').daterangepicker({
+                "showCustomRangeLabel": false,
+                locale: {
+                    format: 'YYYY-MM-DD'
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            $('#getresult').attr("disabled", true);
+
+            $("#ProjectsDD").change(function () {
+
+                var skillsSelect = document.getElementById("ProjectsDD");
+                var project = skillsSelect.options[skillsSelect.selectedIndex].index
+
+                if (project != 0) {
+
+                    $(".btn-settings").css({ "margin-top": "-5px" });
+
+                    $("#loop").show();
+
+                    $(window).ready(function () {
+                        $('#loading').show();
+                    });
+
+                    var skillsSelect = document.getElementById("ProjectsDD");
+                    var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
+
+                    $.ajax({
+                        type: "GET",
+                        url: "/Common/PopulateAssigneeList",
+                        data: { projectname: selectedText },
+                        error: function (data) {
+
+                            $(window).ready(function () {
+                                $('#loading').hide();
+                            });
+
+                            $('#getresult').attr("disabled", true);
+
+                            alert("Sorry, an error has occured while retriewing usernames");
+
+
+                        },
+                        // multiple data sent using ajax
+                        success: function (data) {
+
+                            $('#getresult').attr("disabled", false);
+
+                            $(window).ready(function () {
+                                $('#loading').hide();
+                            });
+
+                            var ddl = $('#UsersDD');
+                            ddl.empty();
+
+                            $(document.createElement('option'))
+                                    .text("Team")
+                                    .attr('id', "Team")
+                                    .appendTo(ddl);
+
+                            $(data).each(function () {
+                                $(document.createElement('option'))
+                                    .attr('value', this.Id)
+                                    .attr('id', this.Text)
+                                    .text(this.Value)
+                                    .appendTo(ddl);
+                            });
+                        }
+                    });
+                }
+                else {
+                    $('#getresult').attr("disabled", true);
+
+                    CrushTimer();
+
+                    $("#loop").hide();
+                    $('#efficiency_table_panel').hide();
+                    $('#efficiency_panel').hide();
+                    $('#efficiency_count').text("0");
+
+                    $(".btn-settings").css({ "margin-top": "-9px" });
+
+                    var ddl = $('#UsersDD');
+                    ddl.empty();
+
+                    $(document.createElement('option'))
+                                    .attr('id', "Team")
+                                    .text("Team")
+                                    .appendTo(ddl);
+
+                }
+            });
+
+            $("#UsersDD").change(function () {
+
+                $(window).ready(function () {
+                    $('#loading').show();
+                });
+
+                var selectlist = document.getElementById("UsersDD");
+                var selected = selectlist.options[selectlist.selectedIndex].id;
+
+                var tempuser = document.getElementById("tempuser");
+                tempuser.value = selected;
+
+                $(window).ready(function () {
+                    $('#loading').hide();
+                });
+
+            })
+        });
+    </script>
+    <script>
+        function Efficiency() {
+            var dates = document.getElementById("daterange").value;
+            var assigneeSelect1 = document.getElementById("UsersDD");
+            var displayname = assigneeSelect1.options[assigneeSelect1.selectedIndex].text;
+
+            $('#efficiency_table').table2excel({
+                exclude: ".noExl",
+                filename: "Efficiency - " + displayname + " (" + dates + ")"
+            });
+        }
+    </script>
+    <script type="text/javascript">
+
+        $("#getresult").click(function () {
+
+            var start = new Date();
+
+            $('#efficiency_table_panel').hide();
+            $('#efficiency-table').DataTable().destroy();
+            $('#efficiency-table tbody').empty();
+
+            $(window).ready(function () {
+                $('#loading').show();
+            });
+
+            var dates = document.getElementById("daterange").value;
+            var assignee = document.getElementById("tempuser").value;
+            var projectSelect = document.getElementById("ProjectsDD");
+            var project = projectSelect.options[projectSelect.selectedIndex].text;
+            var assigneeSelect = document.getElementById("UsersDD");
+            var displayname = assigneeSelect.options[assigneeSelect.selectedIndex].text;
+
+            $.ajax({
+                type: 'GET',
+                url: '/Dashboard/EfficiencyBetweenTwoDates',
+                data: { dates: dates, assignee: assignee, projectname: project },
+                dataType: 'json',
+                error: function (data) {
+
+                    $(window).ready(function () {
+                        $('#loading').hide();
+                    });
+                },
+                success: function (data) {
+
+                    $(window).ready(function () {
+                        $('#loading').hide();
+                    });
+
+                    var end = (new Date() - start)
+
+                    if (assignee != "Team") {
+                        $.each(data.EfficiencyDetails, function (i, item) {
+                            var icon = item.Issue_Icon;
+                            $("#efficiency-table").append("<tr><td><a href=" + item.Issue_Link + " target=" + "_blank" + ">" + item.Issue_ID + "</a></td><td>" + item.Assignee_Name + "</td><td>" + item.Creator + "</td><td>" + item.Created_Date + "</td><td>" + item.Resolution_Date + "</td><td style=" + "color:red;" + "><b>" + item.Efficiency_Point + " times</b></td><td>" + item.Issue_Type + "<img src = " + icon + " style=" + "float:right" + "></td><td><span class=" + item.Status_Color_Code + ">" + item.Status + "</span></td></tr>");
+                        });
+                    }
+                    else {
+                        $.each(data.EfficiencyDetails, function (i, item) {
+                            var icon = item.Issue_Icon;
+                            $("#efficiency-table").append("<tr><td><a href=" + item.Issue_Link + " target=" + "_blank" + ">" + item.Issue_ID + "</a></td><td>" + item.Assignee_Name + "</td><td>" + item.Creator + "</td><td>" + item.Created_Date + "</td><td>" + item.Resolution_Date + "</td><td style=" + "color:red;" + "><b>" + item.Efficiency_Point + " times</b></td><td>" + item.Issue_Type + "<img src = " + icon + " style=" + "float:right" + "></td><td><span class=" + item.Status_Color_Code + ">" + item.Status + "</span></td></tr>");
+                        });
+                    }
+
+                    //if (data.EfficiencyDetails == "") {
+                    //    $("#efficiency-table").append("<tr><td align=" + "center" + " colspan=" + "7" + "><b>No Results Found.</b></td></tr>");
+                    //}
+
+                    var firstt = $('#efficiency-table').DataTable(
+                          {
+                              paging: false,
+                              destroy: true,
+                              bLengthChange: false
+                          });
+
+                    $('#efficiency_count').text(data.TotalCount);
+                    $('#efficiency_table_panel').show();
+                    $('#efficiency_panel').show();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
